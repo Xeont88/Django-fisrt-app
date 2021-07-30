@@ -1,14 +1,24 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>HyperCube</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic" rel="stylesheet" type="text/css">
 </head>
 <body>
     <p>Hi there!</p>
     <p>It works!</p>
 
-        <div>
+    <p>
+        <a href="https://en.wikipedia.org/wiki/Django" class="external_link" id="link_to_wiki_page"> bla bla
+    </p>
+
+        <div class="page-header">
             <h1><a href="/">HyperCube Blog</a></h1>
         </div>
 
@@ -18,12 +28,33 @@
             <p>Какой-то текст, который нужно было написать для первого поста.</p>
         </div>
 
-        <div>
-            {% for post in posts %}
-                <div>
-                    <h1><a href="">{{ post.title }}</a></h1>
+<!--        <div class="post">-->
+<!--            &lt;!&ndash;Цикл for, начало&ndash;&gt;-->
+<!--            {% for post in posts %}-->
+<!--                <div>-->
+<!--                    &lt;!&ndash;Заголовок поста&ndash;&gt;-->
+<!--                    <h1><a href="">{{ post.title }}</a></h1>-->
+<!--                    &lt;!&ndash;Текст поста. |linebreaksbr прогоняет текст через фильтр-->
+<!--                    для преобразования переносов строк в параграфы.&ndash;&gt;-->
+<!--                    <p>{{ post.text|linebreaksbr }}</p>-->
+<!--                </div>-->
+<!--            {% endfor %}-->
+<!--        </div>-->
+
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% for post in posts %}
+                        <div class="post">
+                            <div class="date">
+                                <p>Опубликовано: {{ post.published_date }}</p>
+                            </div>
+                            <h1><a href="">{{ post.title }}</a></h1>
+                            <p>{{ post.text|linebreaksbr }}</p>
+                        </div>
+                    {% endfor %}
                 </div>
-            {% endfor %}
+            </div>
         </div>
 
         <div>
