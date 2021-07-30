@@ -19,6 +19,11 @@
         </div>
 
         <div>
+            {% for post in posts %}
+                <div>
+                    <h1><a href="">{{ post.title }}</a></h1>
+                </div>
+            {% endfor %}
         </div>
 
         <div>
@@ -26,6 +31,8 @@
             <h2><a href="https://vk.com">My second post</a></h2>
             <p>Какой-то текст для второго поста. Я, зачем-то сделал ссылку на вк.... =/</p>
         </div>
+
+
 </body>
 </html>
 
